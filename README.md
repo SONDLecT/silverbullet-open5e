@@ -1,4 +1,4 @@
-# silverbullet-open5e
+# Import Open5E content into Silverbullet using Space-script and snippetse
 Import Open5E content into your Silverbullet notes
 
 [Silverbullet](https://silverbullet.md/) excels as a place to organize your notes as a ttrpg/D&D dungeon master. Being able to link worlds and adventures and players and player characters and monsters and locations – and being able to query between them all – can help the most scatter-brained forever-DM’s among us keep track of our many adventures and all the myriad ways our players run amuck.
