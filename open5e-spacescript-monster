@@ -1,0 +1,37 @@
+```space-script
+silverbullet.registerFunction("fetchMonster", async (monsterSlug) => {
+  const url = `https://api.open5e.com/monsters/${monsterSlug}`;
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`Error fetching monster: ${response.statusText}`);
+  }
+  const monsterData = await response.json();
+
+  // Format actions as a markdown list or return null if empty
+  monsterData.actionsFormatted = monsterData.actions && Array.isArray(monsterData.actions) && monsterData.actions.length > 0
+    ? monsterData.actions.map(action => `- **${action.name}**: ${action.desc}`).join('\n')
+    : null; // Changed from 'No actions listed.' to null
+
+  // Format special abilities as a markdown list or return null if empty
+  monsterData.special_abilitiesFormatted = monsterData.special_abilities && Array.isArray(monsterData.special_abilities) && monsterData.special_abilities.length > 0
+    ? monsterData.special_abilities.map(ability => `- **${ability.name}**: ${ability.desc}`).join('\n')
+    : null; // Changed from 'No special abilities listed.' to null
+
+  // Format legendary actions as a markdown list or return null if empty
+  monsterData.legendary_actionsFormatted = monsterData.legendary_actions && Array.isArray(monsterData.legendary_actions) && monsterData.legendary_actions.length > 0
+    ? monsterData.legendary_actions.map(action => `- **${action.name}**: ${action.desc}`).join('\n')
+    : null; // Changed from 'No legendary actions listed.' to null
+
+  // Format speed as a Markdown string
+  if (monsterData.speed && typeof monsterData.speed === 'object') {
+    const speedEntries = Object.entries(monsterData.speed);
+    const speedFormatted = speedEntries.map(([type, value]) => `${type}: ${value}`).join(', ');
+    monsterData.speedFormatted = speedFormatted;
+  } else {
+    monsterData.speedFormatted = 'Speed not available';
+  }
+
+
+  return monsterData;
+});
+```
