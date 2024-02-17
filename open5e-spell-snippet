@@ -1,0 +1,21 @@
+---
+tags: template
+description: inserts a spell from Open5E
+hooks.snippet.slashCommand: 5e-spell-snippet
+---
+
+```template
+{{escapeDirective("#let @spell = fetchSpell('|^|')")}}
+
+# {{escapeDirective "@spell.name"}}
+
+- **Description**: {{escapeDirective "@spell.desc"}}
+- **Range**: {{escapeDirective "@spell.range"}}
+- **Components**: {{escapeDirective "@spell.components"}}
+- **Duration**: {{escapeDirective "@spell.duration"}}
+- **Casting Time**: {{escapeDirective "@spell.casting_time"}}
+- **Level**: {{escapeDirective "@spell.level"}}
+- **School**: {{escapeDirective "@spell.school"}}
+
+{{escapeDirective("/let")}}
+```
