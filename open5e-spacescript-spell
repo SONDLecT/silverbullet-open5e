@@ -1,0 +1,11 @@
+```space-script
+silverbullet.registerFunction("fetchSpell", async (spellName) => {
+  const url = `https://api.open5e.com/spells/${spellName}`;
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`Error fetching spell: ${response.statusText}`);
+  }
+  const spellData = await response.json();
+  return spellData;
+});
+```
