@@ -8,6 +8,6 @@ This in-progress project aims to create a set of space script functions that cal
 
 ![image](https://github.com/SONDLecT/silverbullet-open5e/assets/74430318/67be22d9-2667-41c6-b5e2-5d8d7dd7cc4f)
 
-![image](https://github.com/SONDLecT/silverbullet-open5e/assets/74430318/2b1c27e9-1b85-4ca4-ae56-d2685a501089)
-
 ![image](https://github.com/SONDLecT/silverbullet-open5e/assets/74430318/3dbb3c61-b76a-4485-9d3e-6cadedb1bd77)
+
+![image](https://github.com/SONDLecT/silverbullet-open5e/assets/74430318/2b1c27e9-1b85-4ca4-ae56-d2685a501089)
