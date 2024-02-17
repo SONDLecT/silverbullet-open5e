@@ -1,0 +1,46 @@
+---
+tags: template
+description: Inserts comprehensive monster information from Open5E
+hooks.snippet.slashCommand: 5e-monster-snippet
+---
+
+```template
+{{escapeDirective("#let @monster = fetchMonster('|^|')")}}
+
+# {{escapeDirective("@monster.name")}}
+*Size*: {{escapeDirective("@monster.size")}}, *Type*: {{escapeDirective("@monster.type")}}, *Alignment*: {{escapeDirective("@monster.alignment")}}
+
+- **Armor Class (AC)**: {{escapeDirective("@monster.armor_class")}}
+- **Hit Points (HP)**: {{escapeDirective("@monster.hit_points")}} ({{escapeDirective("@monster.hit_dice")}})
+- **Speed**: {{escapeDirective("@monster.speedFormatted")}}
+
+**Abilities:**
+| STR | DEX | CON | INT | WIS | CHA |
+|-----|-----|-----|-----|-----|-----|
+| {{escapeDirective("@monster.strength")}} | {{escapeDirective("@monster.dexterity")}} | {{escapeDirective("@monster.constitution")}} | {{escapeDirective("@monster.intelligence")}} | {{escapeDirective("@monster.wisdom")}} | {{escapeDirective("@monster.charisma")}} |
+
+**Senses**: {{escapeDirective("@monster.senses")}}
+**Languages**: {{escapeDirective("@monster.languages")}}
+**Challenge Rating (CR)**: {{escapeDirective("@monster.challenge_rating")}}
+
+{{escapeDirective("#if @monster.special_abilitiesFormatted")}}
+## Special Abilities
+{{escapeDirective("@monster.special_abilitiesFormatted")}}
+{{escapeDirective("/if")}}
+
+{{escapeDirective("#if @monster.actionsFormatted")}}
+## Actions
+{{escapeDirective("@monster.actionsFormatted")}}
+{{escapeDirective("/if")}}
+
+{{escapeDirective("#if @monster.legendary_actionsFormatted")}}
+## Legendary Actions
+{{escapeDirective("@monster.legendary_actionsFormatted")}}
+{{escapeDirective("/if")}}
+
+
+**Source**: {{escapeDirective("@monster.document__title")}} (Page {{escapeDirective("@monster.page_no")}})
+*{{escapeDirective("@monster.document__url")}}*
+
+{{escapeDirective("/let")}}
+```
