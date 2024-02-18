@@ -1,0 +1,19 @@
+---
+tags: template
+description: Inserts comprehensive magic item information from Open5E
+hooks.snippet.slashCommand: 5e-magicitem-snippet
+---
+
+```template
+{{escapeDirective("#let @item = fetchMagicItem('|^|')")}}
+
+# {{escapeDirective("@item.name")}}
+*Type*: {{escapeDirective("@item.type")}}, *Rarity*: {{escapeDirective("@item.rarity")}}{{#if @item.requires_attunement}}, *Requires Attunement*{{/if}}
+
+**Description**: 
+{{escapeDirective("@item.desc")}}
+
+**Source**: [{{escapeDirective("@item.document__title")}}]({{escapeDirective("@item.document__url")}}) (Page {{escapeDirective("@item.page_no")}})
+
+{{escapeDirective("/let")}}
+```
