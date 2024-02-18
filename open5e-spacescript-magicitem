@@ -1,0 +1,13 @@
+## Magic Items
+```space-script
+silverbullet.registerFunction("fetchMagicItem", async (itemSlug) => {
+  const url = `https://api.open5e.com/magicitems/${itemSlug}`;
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`Error fetching magic item: ${response.statusText}`);
+  }
+  const itemData = await response.json();
+
+  return itemData;
+});
+```
